@@ -24,11 +24,6 @@ public class Main {
             wizardDamage = wi1.attack();
             wa1.setLifePoints(wa1.defend(wizardDamage));
         }
-        if(wa1.getLifePoints() > 0){
-            System.out.println("-- Ganador: El Guerrero " + wa1.getName()+ " --");
-        } else {
-            System.out.println("-- Ganador: El Hechicero " + wi1.getName()+ " --");
-        }
         System.out.println("-------------------------------");
 
 
@@ -47,11 +42,6 @@ public class Main {
             r1.setLifePoints(r1.defend(warriorDamage));
             rogueDamage = r1.attack();
             wa2.setLifePoints(wa2.defend(rogueDamage));
-        }
-        if(wa2.getLifePoints() > 0){
-            System.out.println("-- Ganador: El Guerrero " + wa2.getName() + " --");
-        } else {
-            System.out.println("-- Ganador: El Pícaro " + r1.getName() + " --");
         }
         System.out.println("-------------------------------");
     }

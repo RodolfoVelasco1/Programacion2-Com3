@@ -36,7 +36,8 @@ public class Wizard extends baseCharacter {
         if(life > 0) {
             int defense = 10 * this.getLevel();
             if(damage == 0){
-                System.out.println("El guerrero es el ganador.");
+                System.out.println("-------------------------------");
+                System.out.println("El Hechicero " + this.getName() + " es el ganador.");
                 return 0;
             } else if (damage <= defense) {
                 System.out.println("El Hechicero realiza defensa de " + defense + " puntos. No recibe daño.");

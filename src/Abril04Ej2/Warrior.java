@@ -36,7 +36,8 @@ public class Warrior extends baseCharacter {
         if(life > 0) {
             int defense = 5 * this.getLevel();
             if(damage == 0){
-                System.out.println("El guerrero es el ganador.");
+                System.out.println("-------------------------------");
+                System.out.println("El guerrero " + this.getName() + " es el ganador.");
                 return 0;
             } else if (damage <= defense) {
                 System.out.println("El Guerrero realiza defensa de " + defense + " puntos. No recibe daño.");
