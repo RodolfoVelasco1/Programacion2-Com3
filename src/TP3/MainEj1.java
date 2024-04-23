@@ -5,22 +5,22 @@ import java.util.Scanner;
 public class MainEj1 {
     public static void main(String[] args) {
         Group g1 = new Group("Comisión Uno", 'A');
-        g1.addStudent(new Student(44654321, "Felipe"));
-        g1.addStudent(new Student(44654322, "Jazmín"));
-        g1.addStudent(new Student(44654323, "Lucas"));
-        g1.addStudent(new Student(44654324, "Mora"));
-        g1.addStudent(new Student(44654325, "Martín"));
+        g1.addStudent(44654321, "Felipe");
+        g1.addStudent(44654322, "Jazmín");
+        g1.addStudent(44654323, "Lucas");
+        g1.addStudent(44654324, "Mora");
+        g1.addStudent(44654325, "Martín");
 
         Group g2 = new Group("Comisión Dos", 'B');
-        g2.addStudent(g1.getStudents().get(0));
-        g2.addStudent(new Student(42654322, "Lucía"));
-        g2.addStudent(new Student(42654323, "Rodrigo"));
-        g2.addStudent(new Student(42654324, "Ambar"));
-        g2.addStudent(new Student(42654325, "José"));
+        g2.addStudent(44654321, "Felipe");
+        g2.addStudent(42654322, "Lucía");
+        g2.addStudent(42654323, "Rodrigo");
+        g2.addStudent(42654324, "Ambar");
+        g2.addStudent(42654325, "José");
 
         Group g3 = new Group("Comisión Tres", 'C');
-        g3.addStudent(g1.getStudents().get(0));
-        g3.addStudent(new Student(40654322, "Mateo"));
+        g3.addStudent(44654321, "Felipe");
+        g3.addStudent(40654322, "Mateo");
 
         Teacher t1 = new Teacher(35695423, "Roberto", "Programación");
         Subject s1 = new Subject(1, "8:00", "Programación");

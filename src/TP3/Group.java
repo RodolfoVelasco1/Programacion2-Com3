@@ -8,6 +8,7 @@ public class Group implements Iterable<Student>{
     private char letter;
     private ArrayList<Student>students = new ArrayList<>();
     private ArrayList<Subject>subjects = new ArrayList<>();
+    static ArrayList<Student>allStudents = new ArrayList<>();
 
 
     public Group(String form, char letter) {
@@ -49,9 +50,28 @@ public class Group implements Iterable<Student>{
         this.subjects = subjects;
     }
 
-    public void addStudent(Student student){
-        students.add(student);
-        student.addGroups(this);
+    public static ArrayList<Student> getAllStudents() {
+        return allStudents;
+    }
+
+    public static void setAllStudents(ArrayList<Student> allStudents) {
+        Group.allStudents = allStudents;
+    }
+
+    public void addStudent(int id, String name){
+        boolean found = false;
+        found = findStudent(id);
+        if (found == true){
+            int position = findIndex(id);
+            students.add(allStudents.get(position));
+            students.get(students.size() - 1).addGroups(this);
+
+        } else {
+            students.add(new Student(id, name));
+            students.get(students.size() - 1).addGroups(this);
+            allStudents.add(students.get(students.size() - 1));
+        }
+
     }
 
     public void addSubject(Subject subject){
@@ -63,5 +83,25 @@ public class Group implements Iterable<Student>{
     public Iterator<Student> iterator() {
         return students.iterator();
     }
+
+    public boolean findStudent(int id){
+        for(Student student : Group.allStudents){
+            if(id == student.getId()){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public int findIndex(int id){
+        for(Student student : Group.allStudents){
+            if(id == student.getId()){
+                return allStudents.indexOf(student);
+            }
+        }
+        return id;
+    }
+
+
 
 }
