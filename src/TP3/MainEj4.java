@@ -41,13 +41,21 @@ public class MainEj4 {
 
         Scanner sc = new Scanner(System.in);
         System.out.print("Para obtener la información de un alumno, ingrese su nombre: ");
-        String name = sc.nextLine();
-        for(Learner learner : learners){
-            if(learner.getName().equals(name)){
-                System.out.println("Nombre: " + learner.getName() + ". Edad: " + learner.getAge() + ". Nota: " + learner.getGrade());
+        try{
+            String name = sc.nextLine();
+            boolean found = false;
+            for(Learner learner : learners){
+                if(learner.getName().equals(name)){
+                    found = true;
+                    System.out.println("Nombre: " + learner.getName() + ". Edad: " + learner.getAge() + ". Nota: " + learner.getGrade());
+                }
             }
+            if (found == false) {
+                throw new IllegalArgumentException("Ingresó un nombre no válido");
+            }
+        } catch (Exception e){
+            System.out.println("Error. Excepción atrapada: " + e.getMessage());
         }
-
 
 
     }

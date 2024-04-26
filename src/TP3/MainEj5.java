@@ -1,12 +1,13 @@
 package TP3;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class MainEj5 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         TaskList t1 = new TaskList();
-        int answer1;
+        int answer1 = 0;
         System.out.println("---------------------------------");
         System.out.println("Bienvenido a tu organizador de tareas.");
         while (true){
@@ -17,8 +18,14 @@ public class MainEj5 {
             System.out.println("3. Eliminar una tarea de la lista.");
             System.out.println("4. Salir del programa.");
             System.out.print("Ingresa el número de la opción deseada: ");
-            answer1 = sc.nextInt();
-            sc.nextLine();
+            try{
+                answer1 = sc.nextInt();
+                sc.nextLine();
+            } catch (InputMismatchException e){
+                System.out.println("Error. Excepción atrapada: " + e.getMessage());
+                sc.nextLine();
+            }
+
 
             if(answer1 == 1){
                 System.out.print("Ingrese la descripción de la tarea: ");
